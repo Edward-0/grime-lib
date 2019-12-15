@@ -1,0 +1,17 @@
+mod std::core
+
+def class Int {
+	pad _literal;
+	pad _cval;
+}
+
+def class Char {
+	pad _literal;
+	pad _cval;
+}
+
+def class String {
+	pad _literal;
+	pad _cval;
+	func get(Int) -> Int;
+}

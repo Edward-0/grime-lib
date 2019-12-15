@@ -1,0 +1,4 @@
+mod std::io
+
+def func println() -> Int
+
