@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdint.h>
+#include "../core/core.h"
+#include "io.h"
 
-int32_t std_io_println() {
-	printf("println worked\n");
+void std_io_println(struct std_core_String *val) {
+	printf("%s\n", val->_cval(val));
+}
+
+void std_io_printPtr(void *val) {
+	printf("* %d\n", (int) val);
 }

@@ -1,4 +1,2 @@
 mod std::io
-
 def func println(String) -> Void
-
