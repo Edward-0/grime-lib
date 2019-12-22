@@ -1,8 +1,8 @@
 mod std::core
 
 def class Int {
-	pad _literal;
-	pad _cval;
+	pad 2;
+	func add(Int) -> Int;
 }
 
 def class Char {
@@ -13,5 +13,5 @@ def class Char {
 def class String {
 	pad _literal;
 	pad _cval;
-	func get(Int) -> Char;
+	func get(String) -> Char;
 }

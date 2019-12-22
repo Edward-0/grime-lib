@@ -8,7 +8,7 @@ struct std_core_Int {
 	int32_t (*_cval)(struct std_core_Int *this);
 };
 
-void _init_std_core_Int(struct std_core_Int *this);
+struct std_core_Int *_init_std_core_Int();
 
 struct _pimpl_std_core_String;
 
@@ -19,5 +19,5 @@ struct std_core_String {
 	char const *(*_cval)(struct std_core_String *this);
 };
 
-void _init_std_core_String(struct std_core_String *this);
+struct std_core_String *_init_std_core_String();
 
