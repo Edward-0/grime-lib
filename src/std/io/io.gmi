@@ -2,3 +2,20 @@ mod std::io
 
 def func println(String) -> Void
 
+def class File {
+	build (String)
+}
+
+def class FileReader {
+	build (File)
+	build out()
+	build err()
+	func read() -> String
+}
+
+def class FileWriter {
+	build (File)
+	build out()
+	build err()
+	func write(String) -> Void
+}

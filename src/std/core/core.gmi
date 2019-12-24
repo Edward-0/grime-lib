@@ -1,17 +1,18 @@
 mod std::core
 
-def class Int {
-	pad 2;
-	func add(Int) -> Int;
+// RHS Type - T, Evaluted Type - U
+def trait Add<T, U> {
+	func add(T) -> U;
 }
 
-def class Char {
-	pad _literal;
-	pad _cval;
+def class Int {
+
+}
+
+def class Long {
+
 }
 
 def class String {
-	pad _literal;
-	pad _cval;
-	func get(String) -> Char;
+
 }
