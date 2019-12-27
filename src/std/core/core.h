@@ -88,7 +88,7 @@ void (*_demolish_std_core_Char(struct std_core_Char *this))(struct std_core_Char
 void (*_literal_std_core_Char(struct std_core_Char *this))(struct std_core_Char *this, char val);
 char (*_cval_std_core_Char(struct std_core_Char *this))(struct std_core_Char *this);
 
-
+// Possible U Types
 
 struct std_core_String;
 
@@ -97,3 +97,4 @@ struct std_core_String *_init_std_core_String();
 void (*_demolish_std_core_String(struct std_core_String *this))(struct std_core_String *this);
 void (*_literal_std_core_String(struct std_core_String *this))(struct std_core_String *this, char const *val);
 char const *(*_cval_std_core_String(struct std_core_String *this))(struct std_core_String *this);
+struct std_core_Char *(*charAt_std_core_String(struct std_core_String *this))(struct std_core_String *this, struct std_core_Int *);

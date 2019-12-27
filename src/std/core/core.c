@@ -102,6 +102,7 @@ struct std_core_String {
 	void (*_demolish)(struct std_core_String *this);
 	void (*_literal)(struct std_core_String *this, char const *val);
 	char const *(*_cval)(struct std_core_String *this);
+	struct std_core_Char *(*charAt)(struct std_core_String *this, struct std_core_Int *);
 };
 
 void _impl_demolish_std_core_String(struct std_core_String *this) {
@@ -114,8 +115,14 @@ void _impl_literal_std_core_String(struct std_core_String *this, char const *val
 	this->_pimpl->val = val;
 }
 
-char const* _impl_cval_std_core_String(struct std_core_String *this) {
+char const *_impl_cval_std_core_String(struct std_core_String *this) {
 	return this->_pimpl->val;
+}
+
+struct std_core_Char *impl_charAt_std_core_String(struct std_core_String *this, struct std_core_Int *index) {
+	struct std_core_Char *ret = _init_std_core_Char();
+	_literal_std_core_Char(ret)(ret, this->_cval(this)[_cval_std_core_Int(index)(index)]);
+	return ret;
 }
 
 struct std_core_String *_init_std_core_String() {
@@ -124,6 +131,7 @@ struct std_core_String *_init_std_core_String() {
 	this->_demolish = &_impl_demolish_std_core_String;
 	this->_literal = &_impl_literal_std_core_String;
 	this->_cval = &_impl_cval_std_core_String;
+	this->charAt = &impl_charAt_std_core_String;
 	return this;
 }
 
@@ -137,4 +145,8 @@ void (*_literal_std_core_String(struct std_core_String *this))(struct std_core_S
 
 char const *(*_cval_std_core_String(struct std_core_String *this))(struct std_core_String *this) {
 	return this->_cval;
+}
+
+struct std_core_Char *(*charAt_std_core_String(struct std_core_String *this))(struct std_core_String *this, struct std_core_Int *index) {
+	return this->charAt;
 }
