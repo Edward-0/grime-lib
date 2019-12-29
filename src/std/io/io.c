@@ -42,3 +42,7 @@ struct std_io_FileWriter *_init_std_io_FileWriter() {
 	ret->writeByte = &impl_writeByte_std_io_FileWriter;
 	return ret;
 }
+
+void (*_build_std_io_FileWriter(struct std_io_FileWriter *self))(struct std_io_FileWriter *self, struct std_core_String *path) {
+	return self->_build;
+}

@@ -48,6 +48,55 @@ int32_t (*_cval_std_core_Int(struct std_core_Int *this))(struct std_core_Int *th
 	return this->_cval;
 }
 
+
+struct _pimpl_std_core_Byte {
+	int8_t val;
+};
+
+struct std_core_Byte {
+	struct _pimpl_std_core_Byte *_pimpl;
+	void (*_demolish)(struct std_core_Byte *this);
+	void (*_literal)(struct std_core_Byte *this, int8_t val);
+	int8_t (*_cval)(struct std_core_Byte *this);
+};
+
+void _impl_demolish_std_core_Byte(struct std_core_Byte *this) {
+	free(this->_pimpl);
+	free(this);
+}
+
+void _impl_literal_std_core_Byte(struct std_core_Byte *this, int8_t val) {
+	this->_pimpl->val = val;
+}
+
+int8_t _impl_cval_std_core_Byte(struct std_core_Byte *this) {
+	return this->_pimpl->val;
+}
+
+struct std_core_Byte *_init_std_core_Byte() {
+	struct std_core_Byte *this = malloc(sizeof(struct std_core_Byte));
+	this->_pimpl = malloc(sizeof(struct _pimpl_std_core_Byte));
+	this->_demolish = &_impl_demolish_std_core_Byte;
+	this->_literal = &_impl_literal_std_core_Byte;
+	this->_cval = &_impl_cval_std_core_Byte;
+	return this;
+}
+
+void (*_demolish_std_core_Byte(struct std_core_Byte *this))(struct std_core_Byte *this) {
+	return this->_demolish;
+}
+
+void (*_literal_std_core_Byte(struct std_core_Byte *this))(struct std_core_Byte *this, int8_t val) {
+	return this->_literal;
+}
+
+int8_t (*_cval_std_core_Byte(struct std_core_Byte *this))(struct std_core_Byte *this) {
+	return this->_cval;
+}
+
+
+
+
 struct _pimpl_std_core_Char {
 	char val;
 };
