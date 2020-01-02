@@ -42,7 +42,7 @@ struct std_core_String *_init_std_core_String() {
 	ret->_pimpl = (struct _pimpl_std_core_String *) malloc(sizeof(struct _pimpl_std_core_String));
 	ret->_pimpl->Any = _init_std_core_Any();
 	_impl_demolish_std_core_Any(ret->_pimpl->Any, &_impl_demolish_std_core_String);
-	ret->_pimpl->val = 0;
+	ret->_pimpl->val = NULL;
 	ret->_literal = &_impl_literal_std_core_String;
 	ret->_cval = &_impl_cval_std_core_String;
 	return ret;
