@@ -43,6 +43,14 @@ struct std_io_FileWriter *_init_std_io_FileWriter() {
 	return ret;
 }
 
+void (*_demolish_std_io_FileWriter(struct std_io_FileWriter *self))(struct std_io_FileWriter *self) {
+	return self->_demolish;
+}
+
 void (*_build_std_io_FileWriter(struct std_io_FileWriter *self))(struct std_io_FileWriter *self, struct std_core_String *path) {
 	return self->_build;
+}
+
+void (*writeByte_std_io_FileWriter(struct std_io_FileWriter *self))(struct std_io_FileWriter *self, struct std_core_Byte *path) {
+	return self->writeByte;
 }

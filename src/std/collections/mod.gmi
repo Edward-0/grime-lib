@@ -1,0 +1,17 @@
+mod std::collections
+
+trait List<T> {
+	join(List<T>) -> List<T>
+}
+
+class ArrayList<T> {
+	impl List<T> {
+		join(List<T>) -> RopeList<T>
+	}
+}
+
+class RopeList<T> {
+	impl List<T> {
+
+	}
+}

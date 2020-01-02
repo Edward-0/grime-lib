@@ -1,0 +1,19 @@
+mod std::maths
+
+def trait Ring<T> {
+	func zero() -> T
+	func unit() -> T
+	func negate(T) -> T
+	func sum(T, T) -> T
+	func product(T, T) -> T
+}
+
+def class IntRing {
+	impl Ring<T> {
+		func zero() -> Int
+		func unit() -> Int
+		func negate(Int) -> Int
+		func sum(Int, Int) -> Int
+		func product(Int, Int) -> Int
+	}
+}

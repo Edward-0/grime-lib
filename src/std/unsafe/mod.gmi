@@ -1,0 +1,9 @@
+mod std::unsafe
+
+class UnsafeRawPointer {
+	build (Int)
+	func realloc(Int) -> Void
+
+	func readByteAt(Int) -> Byte
+	func writeByteAt(Int, Byte) -> Void
+}

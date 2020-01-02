@@ -1,8 +1,7 @@
 mod std::core
 
-// RHS Type - T, Evaluted Type - U
-def trait Add<T, U> {
-	func add(T) -> U;
+def class Any {
+
 }
 
 def class Int {
